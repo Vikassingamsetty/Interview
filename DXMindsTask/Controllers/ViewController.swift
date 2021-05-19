@@ -15,6 +15,7 @@ class ViewController: UIViewController {
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UserListTVCell.nib(), forCellReuseIdentifier: UserListTVCell.identifier)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
     
@@ -39,6 +40,12 @@ class ViewController: UIViewController {
         
         userListTV.frame = view.bounds
         view.addSubview(userListTV)
+        
+        userListTV.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
+        userListTV.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+        userListTV.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+        userListTV.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+        
     }
     
     //MARK:- Selector
